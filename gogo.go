@@ -92,7 +92,6 @@ func main() {
 					atomic.AddInt64(&totalRequests, 1)
 					if err == nil {
 						atomic.AddInt64(&successRequests, 1)
-						io.ReadAll(resp.Body)
 						resp.Body.Close()
 					} else {
 						atomic.AddInt64(&failedRequests, 1)
